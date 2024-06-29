@@ -11,3 +11,6 @@ try {
   console.error(error);
   console.warn("Client is not ready to use.");
 }
+
+
+export { dbClient };
