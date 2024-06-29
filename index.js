@@ -1,16 +1,14 @@
 import express from "express";
 
+import { userRouter } from "./routes/userRoutes.js"
+
 
 const app = express();
 const port = process.env.PORT ?? 3000;
 
 app.use(express.json());
 
-app.get("/", (request, response) => {
-  response
-    .status(200)
-    .json({ message: "Hello, World" });
-});
+app.use("/users", userRouter);
 
 app.listen(port, () => {
   console.log(`Listening on localhost:${port}...`);
