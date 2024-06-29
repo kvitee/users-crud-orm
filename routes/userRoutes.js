@@ -9,7 +9,7 @@ userRouter.route("/")
   .get(UserController.getAll)
   .post(UserController.create);
 
-userRouter.route("/:userId(\d+)")
+userRouter.route("/:userId(\\d+)")
   .get(UserController.get)
   .put(UserController.update)
   .delete(UserController.delete);
