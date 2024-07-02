@@ -36,7 +36,7 @@ class UserController {
     try {
       await UserService.update(+req.params.userId, req.body);
 
-      res.status(204);
+      res.status(204).end();
     } catch (error) {
       next(error);
     }
@@ -46,7 +46,7 @@ class UserController {
     try {
       await UserService.delete(+req.params.userId);
 
-      res.status(204);
+      res.status(204).end();
     } catch (error) {
       next(error);
     }
