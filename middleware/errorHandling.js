@@ -2,16 +2,13 @@ import { PropertyRequiredError } from "../exceptions/PropertyRequired.js";
 
 
 function handleAnyError(err, req, res, next) {
-  res
-    .status(500)
-    .json(err);
+  res.status(500).json(err);
 }
 
 function handlePropertyRequiredError(err, req, res, next) {
   if (err instanceof PropertyRequiredError) {
-    res
-      .status(422)
-      .json(err);
+    res.statusMessage = "Property Required";
+    res.status(422).json(err);
   } else {
     next(err);
   }

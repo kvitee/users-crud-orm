@@ -6,6 +6,7 @@ class UserController {
     try {
       const userId = await UserService.create(req.body);
 
+      res.statusMessage = "User Created";
       res.status(201).json({ id: userId });
     } catch (error) {
       next(error);
@@ -36,6 +37,7 @@ class UserController {
     try {
       await UserService.update(+req.params.userId, req.body);
 
+      res.statusMessage = "User Updated";
       res.status(204).end();
     } catch (error) {
       next(error);
@@ -46,6 +48,7 @@ class UserController {
     try {
       await UserService.delete(+req.params.userId);
 
+      res.statusMessage = "User Deleted";
       res.status(204).end();
     } catch (error) {
       next(error);
