@@ -2,8 +2,10 @@ import express from "express";
 
 import { userRouter } from "./routes/userRoutes.js"
 
-import { handleAnyError } from "./middleware/errorHandling.js";
-import { handleUserNotExistError } from "./middleware/userErrorHandling.js";
+import { handleAnyError, handlePropertyRequiredError }
+  from "./middleware/errorHandling.js";
+import { handleUserNotExistError }
+  from "./middleware/userErrorHandling.js";
 
 
 const app = express();
@@ -14,6 +16,7 @@ app.use(express.json());
 app.use("/users", userRouter);
 
 app.use(handleUserNotExistError);
+app.use(handlePropertyRequiredError);
 app.use(handleAnyError);
 
 app.listen(port, () => {
