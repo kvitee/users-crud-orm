@@ -2,40 +2,54 @@ import { UserService } from "../services/UserService.js"
 
 
 class UserController {
-  static async create(req, res) {
-    const userId = await UserService.create(req.body);
+  static async create(req, res, next) {
+    try {
+      const userId = await UserService.create(req.body);
 
-    res
-      .status(201)
-      .json({ id: userId });
+      res.status(201).json({ id: userId });
+    } catch (error) {
+      next(error);
+    }
   }
 
-  static async getAll(req, res) {
-    const users = await UserService.getAll();
+  static async getAll(req, res, next) {
+    try {
+      const users = await UserService.getAll();
 
-    res
-      .status(200)
-      .json(users);
+      res.status(200).json(users);
+    } catch (error) {
+      next(error);
+    }
   }
 
-  static async get(req, res) {
-    const user = await UserService.get(+req.params.userId);
+  static async get(req, res, next) {
+    try {
+      const user = await UserService.get(+req.params.userId);
 
-    res
-      .status(200)
-      .json(user);
+      res.status(200).json(user);
+    } catch (error) {
+      next(error);
+    }
   }
 
-  static async update(req, res) {
-    await UserService.update(+req.params.userId, req.body);
+  static async update(req, res, next) {
+    try {
+      await UserService.update(+req.params.userId, req.body);
 
-    res.status(204);
+      res.status(204);
+    } catch (error) {
+      next(error);
+    }
   }
 
-  static async delete(req, res) {
-    await UserService.delete(+req.params.userId);
+  static async delete(req, res, next) {
+    try {
+      await UserService.delete(+req.params.userId);
 
-    res.status(204);
+      res.status(204);
+    } catch (error) {
+      next(error);
+    }
   }
 };
 
