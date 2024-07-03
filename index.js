@@ -12,7 +12,7 @@ import { setPgTypeParsers } from "./utils/pgTypeParsers.js";
 
 
 const app = express();
-const port = process.env.PORT ?? 3000;
+const port = +process.env.PORT || 3000;
 
 /* JSON body parsing */
 app.use(express.json());
