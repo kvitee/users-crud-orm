@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import pg from "pg";
 
 import { userRouter } from "./routes/userRoutes.js"
@@ -13,6 +14,19 @@ import { setPgTypeParsers } from "./utils/pgTypeParsers.js";
 
 const app = express();
 const port = +process.env.PORT || 3000;
+
+/* CORS allowed origins */
+const allowed_origins = [
+  "*",
+];
+
+const corsOptions = {
+  origin: allowed_origins,
+  methods: "OPTIONS,GET,HEAD,PUT,POST,DELETE"
+};
+
+/* CORS */
+app.use(cors(corsOptions));
 
 /* JSON body parsing */
 app.use(express.json());
