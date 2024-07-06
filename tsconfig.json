@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "es2022",
     "outDir": "./dist",
     "rootDir": "./src",
     "module": "nodenext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "allowJs": true
+    "allowJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
   "include": [ "src/**/*" ]
 }
