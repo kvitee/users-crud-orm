@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import pg from "pg";
+
+import "reflect-metadata";
 
 import { userRouter } from "./routes/userRoutes.js"
 
@@ -8,8 +9,6 @@ import { handleAnyError, handlePropertyRequiredError }
   from "./middleware/errorHandling.js";
 import { handleUserNotExistError }
   from "./middleware/userErrorHandling.js";
-
-import { setPgTypeParsers } from "./utils/pgTypeParsers.js";
 
 
 const app = express();
@@ -43,6 +42,3 @@ app.use(handleAnyError);
 app.listen(port, () => {
   console.log(`Listening on localhost:${port}...`);
 });
-
-/* Setting custom Postgres type parsers. */
-setPgTypeParsers(pg);
