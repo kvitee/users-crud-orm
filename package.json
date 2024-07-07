@@ -1,11 +1,10 @@
 {
   "name": "users-crud-express",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "initdb": "node --env-file=.env dist/config/createSchema.js",
     "build": "tsc",
     "start": "node --env-file=.env dist/index.js",
     "dev": "nodemon --env-file=.env dist/index.js"
