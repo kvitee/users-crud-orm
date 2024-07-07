@@ -34,10 +34,10 @@ Install dependencies:
 npm i
 ```
 
-Create DB schema:
+Build project:
 
 ```sh
-npm run initdb
+npm run build
 ```
 
 Run server:
